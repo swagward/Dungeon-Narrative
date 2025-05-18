@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 73436298}
   - component: {fileID: 73436297}
   - component: {fileID: 73436296}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: HarveyNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,8 +272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d44f0c4e95a6564482830079e947268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lines: {fileID: 11400000, guid: 9faef0cfed884424382a6aa12cc38e91, type: 2}
-  typeSpeed: 0.2
+  lines: {fileID: 11400000, guid: 6a8a25bc4ffb3f244ad143d0bebba116, type: 2}
+  typeSpeed: 0.05
   dialoguePanel: {fileID: 928910528}
   speakerNameText: {fileID: 979174477}
   dialogueText: {fileID: 839922601}
@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f57fa20999c5f45a83d69a5d8be014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 250
+  sensitivity: 350
   cameraHolder: {fileID: 1025769926}
 --- !u!1 &410087039
 GameObject:
@@ -1721,9 +1721,6 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 256
-  npcLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!1 &2028976926
 GameObject:
   m_ObjectHideFlags: 0

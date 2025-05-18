@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     
     [Header("Player Interactions")]
     [SerializeField] private LayerMask interactableLayer;
-    [SerializeField] private LayerMask npcLayer;
 
     private void Start()
     {
@@ -40,17 +39,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out var interactHit, 5, interactableLayer))
             {
                 var interactableObj = interactHit.collider.gameObject;
-                interactableObj.GetComponent<Interactable>().Use();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            var ray = new Ray(cam.transform.position, cam.transform.forward);
-            if (Physics.Raycast(ray, out var hit, 3, npcLayer))
-            {
-                var npcSpeaker = hit.collider.gameObject;
-                npcSpeaker.GetComponent<DialogueSpeaker>().StartDialogue();
+                interactableObj.GetComponent<Interactable>().Interact();
             }
         }
         

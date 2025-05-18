@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public virtual void Use()
+    //All interactable objects inherit from this.
+    public virtual void Interact()
     {
-        Debug.Log("yeah done shit");
+        Debug.Log("Base interactable");
     }
 }

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Door : Interactable
 {
-    public override void Use()
+    public override void Interact()
     {
-        base.Use();
+        base.Interact();
         Debug.Log("door shit");
     }
 }

@@ -3,9 +3,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueSpeaker : MonoBehaviour
+public class DialogueSpeaker : Interactable
 {
     public static bool DialogueActive { get; private set; }
+    
+    [Header("NPC Dialogue")]
     [SerializeField] private DialogueLines lines;
     [SerializeField] private float typeSpeed;
     
@@ -22,6 +24,11 @@ public class DialogueSpeaker : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         continueButton.onClick.AddListener(NextLine);
+    }
+
+    public override void Interact()
+    {
+        StartDialogue();
     }
 
     public void StartDialogue()
