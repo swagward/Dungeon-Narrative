@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: TestNPC
   m_EditorClassIdentifier: 
   speakerName: Test NPC
-  dialogue:
-  - Hello! This is a test dialogue.
-  - And so is this.
+  lines:
+  - This is a test message

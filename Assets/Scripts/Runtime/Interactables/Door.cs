@@ -5,6 +5,6 @@ public class Door : Interactable
     public override void Interact()
     {
         base.Interact();
-        Debug.Log("door shit");
+        Destroy(this.gameObject);
     }
 }

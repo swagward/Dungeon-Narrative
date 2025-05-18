@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe55592e6e241e14382549639e73f515, type: 3}
   m_Name: QuestItem
   m_EditorClassIdentifier: 
-  speakerName: 
-  dialogue: []
+  speakerName: whats 9 + 10
+  lines:
+  - Hello! Do me a favour will you?
+  - Can you get me fortnite vbucks? or maybe the battle pass?

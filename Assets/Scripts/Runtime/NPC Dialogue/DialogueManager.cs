@@ -69,13 +69,9 @@ public class DialogueManager : MonoBehaviour
     {
         _currentLineIndex++;
         if (_currentLineIndex < _currentLines.Length)
-        {
             ShowLine();
-        }
         else
-        {
             EndDialogue();
-        }
     }
 
     private void EndDialogue()
