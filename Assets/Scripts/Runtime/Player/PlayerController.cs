@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
-        if (DialogueSpeaker.DialogueActive) return;
+        if (DialogueManager.Instance.DialogueActive) return;
 
         UpdateTargetMarker();
         

@@ -17,7 +17,7 @@ public class PlayerLook : MonoBehaviour
     
     private void Update()
     {
-        if (DialogueSpeaker.DialogueActive) return;
+        if (DialogueManager.Instance.DialogueActive) return;
         
         if (Input.GetMouseButton(1))
         {

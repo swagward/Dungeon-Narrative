@@ -4,18 +4,24 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
+    private readonly HashSet<string> items = new();
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if(Instance is null) Instance = this;
         else Destroy(gameObject);
     }
 
-    private readonly HashSet<string> _items = new();
+    public void AddItem(string itemName)
+    {
+        Debug.Log($"Adding item: {itemName}");
+        items.Add(itemName);
+    }
 
-    public void AddItem(string itemName) => _items.Add(itemName);
+    public void RemoveItem(string itemName)
+        => items.Remove(itemName);
+    
+    public bool HasItem(string itemName)
+        => items.Contains(itemName);
 
-    public bool HasItem(string itemName) => _items.Contains(itemName);
-
-    public void RemoveItem(string itemName) => _items.Remove(itemName);
 }
