@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
             var ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out var groundHit, 20, groundLayer))
             {
-                _targetPos = new Vector3(groundHit.point.x, 1, groundHit.point.z);
+                _targetPos = new Vector3(groundHit.point.x, groundHit.point.y + 1, groundHit.point.z);
                 _isMoving = true;
             }
 
@@ -43,10 +43,12 @@ public class PlayerController : MonoBehaviour
                 interactableObj.GetComponent<Interactable>().Interact();
             }
         }
-        
+
         if (_isMoving)
+        {
             stepSFX.Play();
             MoveToTarget();
+        }
     }
 
     private void UpdateTargetMarker()
@@ -66,10 +68,20 @@ public class PlayerController : MonoBehaviour
         var moveDir = (_targetPos - transform.position).normalized;
         var dst = Vector3.Distance(transform.position, _targetPos);
 
-        //move to target until close enough
-        if (dst > .1f)
-            nMA.SetDestination(_targetPos);
+        if (dst > 0.1f)
+        {
+            var ray = new Ray(transform.position + Vector3.up * 0.5f, moveDir);
+            if (Physics.Raycast(ray, 0.75f))
+            {
+                _isMoving = false;
+                return;
+            }
+            
+            transform.position += moveDir * (moveSpeed * Time.deltaTime);
+        }
         else
+        {
             _isMoving = false;
+        }
     }
 }

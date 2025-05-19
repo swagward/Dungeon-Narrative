@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
-    public bool DialogueActive { get; private set; }
+    public bool DialogueActive { get; set; }
     
     [Header("UI")]
     [SerializeField] private GameObject dialogueBox;

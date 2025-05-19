@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Door : Interactable
 {
     public AudioSource openSFX;
+    
     public override void Interact()
     {
         base.Interact();

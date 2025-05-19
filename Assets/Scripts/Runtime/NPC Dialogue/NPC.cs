@@ -33,7 +33,6 @@ public class NPC : Interactable
                     if (npcRemover) 
                     { 
                         objectToRemove.SetActive(false);
-                        Debug.Log("npcremover");
                     }
                     if(requiredItem == "Sword Piece")
                     {
