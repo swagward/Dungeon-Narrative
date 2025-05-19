@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Librarian
   lines:
-  - Yo wagwan leng ting
-  - I lost my book, g.
-  - can you help a cuh out?
+  - Hello young adventurer
+  - Ive lost my book and Im afraid I can't open the door without it
+  - Could you be of assistance?

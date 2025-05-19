@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Camera cam;
@@ -9,9 +9,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private GameObject targetMarkerPrefab;
     private GameObject _targetMarkerInstance;
+    public AudioSource stepSFX;
     private Vector3 _targetPos;
     private bool _isMoving;
-    
+    public NavMeshAgent nMA;
     [Header("Player Interactions")]
     [SerializeField] private LayerMask interactableLayer;
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         }
         
         if (_isMoving)
+            stepSFX.Play();
             MoveToTarget();
     }
 
@@ -66,8 +68,8 @@ public class PlayerController : MonoBehaviour
 
         //move to target until close enough
         if (dst > .1f)
-            transform.position += moveDir * (moveSpeed * Time.deltaTime);
-        else 
+            nMA.SetDestination(_targetPos);
+        else
             _isMoving = false;
     }
 }

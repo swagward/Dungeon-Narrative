@@ -6,9 +6,13 @@ public class NPC : Interactable
     public DialogueLines dialogue;
     public bool isQuestGiver;
     public string requiredItem;
-
+    public bool objectToAdd;
+    public GameObject objectAdded;
+    public GameObject objectToRemove;
+    public bool npcRemover;
     private bool _questGiven;
     private bool _questCompleted;
+    public SwordManager SwordManager;
 
     public override void Interact()
     {
@@ -26,6 +30,19 @@ public class NPC : Interactable
                 if (Inventory.Instance.HasItem(requiredItem))
                 {
                     _questCompleted = true;
+                    if (npcRemover) 
+                    { 
+                        objectToRemove.SetActive(false);
+                        Debug.Log("npcremover");
+                    }
+                    if(requiredItem == "Sword Piece")
+                    {
+                        SwordManager.firstSwordEvil = true;
+                    }
+                    if (objectToAdd)
+                    {
+                        objectAdded.SetActive(true);
+                    }
                     Inventory.Instance.RemoveItem(requiredItem);
                     DialogueManager.Instance.StartDialogue(dialogue.speakerName, new[] { "Thanks for bringing it to me!" });
                 }

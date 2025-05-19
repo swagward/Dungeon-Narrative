@@ -4,6 +4,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
+    
     private readonly HashSet<string> items = new();
 
     private void Awake()
